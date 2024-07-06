@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [crendentials, setcrendentials] = useState({ email: "", password: "" })
-    const navigate = useNavigate();
+    let navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await fetch("http://localhost:5000/api/auth/login", {
@@ -15,15 +15,15 @@ const Login = () => {
         });
         const json = await response.json();
         console.log(json);
-        if(json.success){
+        if (json.success) {
             //save the authtoken and redirect
             localStorage.setItem('token', json.authtoken);
             navigate("/");
         }
-        else{
+        else {
             alert("Invalid crendentials")
         }
-    }   
+    }
 
     const onChange = (e) => {
         setcrendentials({ ...crendentials, [e.target.name]: e.target.value })
