@@ -1,11 +1,11 @@
 import Notes from './Notes';
-const Home = () => {
- 
+const Home = (props) => {
+  const { showAlert }=props;
   return (
-    <div> 
-    <Notes/>
+    <div>
+      <Notes showAlert={showAlert} />
     </div>
-    
+
   )
 }
 

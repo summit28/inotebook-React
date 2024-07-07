@@ -3,7 +3,7 @@ import noteContext from '../context/notes/noteContext';
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
 
-const Notes = () => {
+const Notes = (props) => {
   const context = useContext(noteContext)
   const { notes, getNotes, editNote } = context;
   useEffect(() => {
@@ -23,13 +23,14 @@ const Notes = () => {
   const handleSubmit = (e) => {
     editNote(note.id, note.etitle, note.edescription, note.etag)
     refClose.current.click();
+    props.showAlert("Updated Succesfully", "success");
   }
-  const onchange = (e) => { 
+  const onchange = (e) => {
     setnote({ ...note, [e.target.name]: e.target.value })
   }
   return (
     <>
-      <AddNote />
+      <AddNote showAlert={props.showAlert} />
       <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Launch demo modal
       </button>
@@ -58,7 +59,7 @@ const Notes = () => {
             </div>
             <div className="modal-footer">
               <button type="button" ref={refClose} className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button disabled={note.etitle.length<5 || note.edescription.length<5} type="button" onClick={handleSubmit} className="btn btn-primary">Update Note</button>
+              <button disabled={note.etitle.length < 5 || note.edescription.length < 5} type="button" onClick={handleSubmit} className="btn btn-primary">Update Note</button>
             </div>
           </div>
         </div>
@@ -66,10 +67,10 @@ const Notes = () => {
       <div className="row my-3">
         <h2>Your notes </h2>
         <div className="container mx-2">
-        {notes.length===0 && 'No notes to display '}
+          {notes.length === 0 && 'No notes to display '}
         </div>
         {notes.map((note) => {
-          return <Noteitem key={note._id} updateNote={updateNote} note={note} />
+          return <Noteitem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />
         })}
       </div>
     </>
