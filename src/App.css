@@ -36,3 +36,75 @@
     transform: rotate(360deg);
   }
 }
+/* App.css */
+
+/* Set background color for the entire app */
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  background-color: #f0f0f0; /* Light Grey */
+}
+
+/* Additional styles for the Navbar */
+.navbar {
+  background-color: #563d7c; /* Dark Purple */
+  color: white;
+}
+
+/* Styling for buttons */
+.btn-custom {
+  background-color: #ff6f61; /* Coral */
+  color: white;
+}
+
+.btn-custom:hover {
+  background-color: #ff4a3c; /* Darker Coral */
+}
+
+/* Example of container styles */
+.container {
+  padding: 20px;
+  background-color: #ffffff; /* White */
+  border: 1px solid #e0e0e0; /* Light Grey Border */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle Shadow */
+}
+/* About.css */
+
+.about-container {
+  background-color: #ffffff; /* White background for the content area */
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px; /* Center the content and limit the width */
+  border: 1px solid #e0e0e0; /* Light grey border */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.about-container h1 {
+  color: #563d7c; /* Dark Purple heading color */
+  text-align: center; /* Center align the main heading */
+}
+
+.about-container h2 {
+  color: #563d7c; /* Dark Purple for subheadings */
+  margin-top: 20px;
+}
+
+.about-container p {
+  color: #333; /* Dark grey text color */
+  font-size: 1.1em; /* Slightly larger text for readability */
+  line-height: 1.6; /* Improved line spacing */
+}
+
+.about-container ul {
+  color: #333; /* Dark grey text color */
+  font-size: 1.1em; /* Slightly larger text for readability */
+  line-height: 1.6; /* Improved line spacing */
+  list-style-type: disc; /* Display list items with disc bullets */
+  padding-left: 20px; /* Add padding to the left of the list */
+}
+
+.about-container ul li {
+  margin-bottom: 10px; /* Add some space between list items */
+}
